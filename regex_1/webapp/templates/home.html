@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color:blue
+        }
+        form {
+            margin-top: 20px; 
+            color:red
+        }
+        input[type="submit"] {
+            width: 150px; 
+            position: center;
+        }
+        #regex-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            color:aqua
+        }
+        #r-prefix {
+            position: absolute;
+            left: 2.5px;
+            font-family: 'Comic Sans MS', sans-serif; 
+            font-weight: 500;
+        }
+        #quote-suffix {
+            position: absolute;
+            top: 0;
+            right: 13px;;
+            font-family: 'Comic Sans MS', sans-serif; 
+            font-weight:500; 
+        }
+        textarea#regex {
+            background-color: aquamarine;
+            padding-left: 20px; 
+            padding-right: 15px; 
+           
+        }
+        textarea#string{
+            background-color: aquamarine;
+            padding: 5px 5px 5px 5px;
+           
+        }
+    </style>
+</head>
+<body>
+     <a href="/email"> <input type="submit" value="check email"></a>
+   <form action="" method="post">
+    Regular Expression:<br>
+    <div id="regex-wrapper">
+        <div id="r-prefix">r"</div>
+        <textarea name="regex" id="regex" rows="1" cols="90" placeholder="Enter the Regular Expression" required>{{ form_data.get('regex', '') }}</textarea>
+        <div id="quote-suffix">"</div>
+    </div>
+    <br>
+    Test String : <br><textarea name="test_string" id="string" rows="20" cols="90" placeholder="Enter String to match" required>{{ form_data.get('test_string', '') }}</textarea><br>
+    <input type="submit" value="submit">
+   </form> 
+
+   <h2>Matched Items are</h2>
+   <ul>
+    {% for count, item in matched_strings %}
+    <li>Match {{count}}: {{item}}</li>
+    {% endfor %}
+   </ul>
+</body>
+</html>

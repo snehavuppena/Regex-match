@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Check</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            margin-top: 20px; 
+        }
+        input[type="submit"] {
+            width: 100px; 
+        }
+        
+    </style>
+    
+     <form action="/">
+        <button type="submit">Back to Regex Matching</button>
+     </form>
+    <form action="" method="post">
+        Email ID : <br><textarea name="email_input"  cols="50" rows="5" placeholder="Enter your Email Address" required></textarea><br>
+        <input type="submit" value="Check">
+    </form>
+    <h2>If Your Email ID is valid, it will display here</h2>
+   <ul>
+    {% for item in match_result %}
+    <li>Match : {{item}}</li>
+    {% endfor %}
+   </ul>
+</body>
+</html>
